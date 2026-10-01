@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+    background-color: #F6F4EF;
+    color: #1F2124;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #A8834A;
+    outline-offset: 2px;
+  }
+
+  /* Safe tap target defaults */
+  button, a {
+    touch-action: manipulation;
+  }
+
+  /* Smooth scroll margins to prevent headers being hidden by sticky nav */
+  section {
+    scroll-margin-top: 5rem;
+  }
+
+  @media (max-width: 640px) {
+    section {
+      scroll-margin-top: 4.5rem;
+    }
+  }
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
