@@ -47,7 +47,7 @@ export function ImageOrPlaceholder({
 
   const aspectClasses = {
     square: "aspect-square",
-    landscape: "aspect-[4/3] md:aspect-[16/10]",
+    landscape: "aspect-[4/3]",
     portrait: "aspect-[3/4]",
     wide: "aspect-[16/9]",
     hero: "aspect-[16/10] md:aspect-[21/9] min-h-[420px] md:min-h-[560px]",

@@ -1,25 +1,6 @@
 import React from "react";
-import {
-  Shield,
-  Hammer,
-  Layers,
-  Clock,
-  Users,
-  MapPin,
-} from "lucide-react";
 import { siteContent, WhyUsItem } from "@/content/site";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { Reveal } from "@/components/ui/Reveal";
-
-const iconMap = {
-  shield: Shield,
-  hammer: Hammer,
-  layers: Layers,
-  clock: Clock,
-  users: Users,
-  mapPin: MapPin,
-};
 
 export function WhyChooseUs() {
   const { whyUs } = siteContent;
@@ -28,57 +9,75 @@ export function WhyChooseUs() {
     <section
       id="why-us"
       aria-labelledby="why-us-heading"
-      className="py-20 md:py-28 bg-charcoal text-offwhite scroll-mt-16 border-t border-charcoal-border"
+      className="bg-offwhite text-charcoal scroll-mt-16"
+      style={{
+        paddingTop: "5rem",
+        paddingBottom: "8rem",
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <SectionHeading
-            id="why-us-heading"
-            theme="dark"
-            tagline="Our Standards"
-            title="Why Choose Mashallah Aluminum"
-            description="Our focus is on dependable fabrication, sturdy aluminum sections, and clean, reliable glass installation."
-          />
-        </Reveal>
+        {/* Two-column layout on desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Left column: sticky title + intro */}
+          <div className="lg:col-span-4 lg:sticky lg:top-24 lg:h-min">
+            <Reveal>
+              <div style={{ marginBottom: "2rem" }}>
+                <h2
+                  id="why-us-heading"
+                  className="text-3xl md:text-4xl font-medium text-charcoal mb-4"
+                  style={{ maxWidth: "15ch", lineHeight: 1.2 }}
+                >
+                  Why clients choose us
+                </h2>
+                <p
+                  className="text-base text-warmgray leading-relaxed"
+                  style={{ maxWidth: "40ch" }}
+                >
+                  Dependable fabrication, quality materials, and reliable installation.
+                </p>
+              </div>
+            </Reveal>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {whyUs.map((item: WhyUsItem, index: number) => {
-            const IconComponent = iconMap[item.iconName] || Shield;
-
-            return (
-              <Reveal key={item.id} delayMs={index * 60}>
-                <div className="h-full p-6 rounded-lg bg-charcoal-200 border border-charcoal-border hover:border-accent/50 transition-all duration-300 flex flex-col justify-between group">
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-md bg-charcoal-100 border border-charcoal-border flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-charcoal transition-colors">
-                        <IconComponent className="w-5 h-5 stroke-[1.75]" />
-                      </div>
-                      <span className="font-mono text-xs text-warmgray font-semibold">
+          {/* Right column: list items */}
+          <div className="lg:col-span-8 [&>*:last-child]:border-b-0">
+            {whyUs.map((item: WhyUsItem, index: number) => (
+              <Reveal key={item.id} delayMs={index * 30}>
+                <div
+                  className="group py-9 lg:py-12 border-b border-warmgray-light/40 hover:border-accent transition-colors duration-200"
+                  style={{
+                    paddingTop: index === 0 ? "0" : "2.25rem",
+                  }}
+                >
+                  {/* Row content */}
+                  <div className="flex gap-6 lg:gap-8">
+                    {/* Number: monospace, muted gold */}
+                    <div className="flex-shrink-0">
+                      <span className="font-mono text-sm text-warmgray-light group-hover:text-accent transition-colors duration-200">
                         {item.number}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2 mb-2">
-                      <h3 className="font-display text-base font-bold text-offwhite group-hover:text-accent-light transition-colors">
+                    {/* Heading + description */}
+                    <div className="flex-grow min-w-0">
+                      <h3
+                        className="text-lg md:text-xl font-medium text-charcoal group-hover:text-accent transition-colors duration-200 mb-2"
+                        style={{ lineHeight: 1.3 }}
+                      >
                         {item.title}
                       </h3>
-                      {item.needsClientConfirmation && (
-                        <Placeholder
-                          label="CONFIRM WITH CLIENT"
-                          variant="badge"
-                          className="text-[9px] py-0 px-1"
-                        />
-                      )}
+                      <p
+                        className="text-base text-warmgray leading-relaxed"
+                        style={{ maxWidth: "65ch" }}
+                      >
+                        {item.description}
+                      </p>
                     </div>
-
-                    <p className="text-sm text-offwhite/75 leading-relaxed font-sans">
-                      {item.description}
-                    </p>
                   </div>
                 </div>
               </Reveal>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

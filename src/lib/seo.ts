@@ -1,21 +1,19 @@
-import { siteContent, isPlaceholder, resolveValue } from "@/content/site";
+import { siteContent } from "@/content/site";
 
 export function getLocalBusinessJsonLd() {
   const { business } = siteContent;
 
-  const url = resolveValue(business.domain);
-  const email = !isPlaceholder(business.email) ? business.email : undefined;
-  const hours = !isPlaceholder(business.hours) ? business.hours : undefined;
-  const logo = !isPlaceholder(business.logoSrc) ? business.logoSrc : undefined;
-  const heroPhoto = !isPlaceholder(business.heroPhotoSrc) ? business.heroPhotoSrc : undefined;
+  const url = business.domain;
+  const email = business.email && business.email.length > 0 ? business.email : undefined;
+  const hours = business.hours && business.hours.length > 0 ? business.hours : undefined;
+  const logo = business.logoSrc && business.logoSrc.length > 0 ? business.logoSrc : undefined;
+  const heroPhoto = business.heroPhotoSrc && business.heroPhotoSrc.length > 0 ? business.heroPhotoSrc : undefined;
 
   const images: string[] = [];
   if (heroPhoto) images.push(heroPhoto);
   if (logo) images.push(logo);
 
-  const coords = !isPlaceholder(business.coordinates)
-    ? business.coordinates
-    : resolveValue(business.coordinates);
+  const coords = business.coordinates;
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",

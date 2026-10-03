@@ -1,102 +1,94 @@
 import React from "react";
-import {
-  AppWindow,
-  DoorClosed,
-  Columns,
-  Maximize2,
-  Sliders,
-  Wrench,
-  Store,
-  Sparkles,
-  MessageCircle,
-} from "lucide-react";
+import { MessageCircle, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { siteContent, ServiceItem } from "@/content/site";
 import { whatsappLink } from "@/lib/contact";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { Reveal } from "@/components/ui/Reveal";
 
-const iconMap = {
-  window: AppWindow,
-  door: DoorClosed,
-  glass: Columns,
-  partition: Maximize2,
-  sliding: Sliders,
-  installation: Wrench,
-  shopfront: Store,
-  custom: Sparkles,
+// Map services to their corresponding project images
+const serviceImageMap: Record<string, string> = {
+  "aluminum-windows": "/images/projects/windows.jpg",
+  "aluminum-doors": "/images/projects/sliding.jpg",
+  "glass-doors": "/images/projects/frameless.jpg",
+  "glass-partitions": "/images/projects/partition.jpg",
+  "sliding-systems": "/images/projects/sliding.jpg",
+  "glass-installation": "/images/projects/double-glazed.jpg",
+  "shop-front-glass": "/images/projects/shopfront.jpg",
+  "custom-fabrication": "/images/projects/casement.jpg",
 };
 
 export function Services() {
-  const { services, servicesNote } = siteContent;
+  const { services } = siteContent;
 
   return (
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="py-20 md:py-28 bg-offwhite text-charcoal scroll-mt-16"
+      className="py-20 md:py-28 bg-[#F5F1EA] scroll-mt-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
             id="services-heading"
-            tagline="What We Provide"
-            title="Aluminum & Glass Services"
-            description="Precision-engineered aluminum framing and architectural glass installations designed for homes, offices, and commercial properties in Faisalabad."
+            tagline="Professional Services"
+            title="Our Aluminum & Glass Solutions"
+            description="High-quality fabrication and installation services for residential and commercial projects."
           />
         </Reveal>
 
-        {servicesNote.needsClientConfirmation && (
-          <Reveal delayMs={100}>
-            <div className="flex justify-center -mt-6 mb-10">
-              <Placeholder
-                label={servicesNote.label}
-                variant="badge"
-                note="List of services to be reviewed and confirmed with business owner."
-              />
-            </div>
-          </Reveal>
-        )}
-
         {/* Responsive Grid: 1 col mobile, 2 col tablet, 3-4 col desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service: ServiceItem, index: number) => {
-            const IconComponent = iconMap[service.iconName] || AppWindow;
             const waUrl = whatsappLink(service.whatsappMessage);
+            const imageSrc = serviceImageMap[service.id] || "/images/projects/hero.jpg";
 
             return (
               <Reveal key={service.id} delayMs={index * 60}>
-                <div className="group h-full flex flex-col justify-between p-6 rounded-lg bg-offwhite-card border border-offwhite-border hover:border-accent/60 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="w-12 h-12 rounded-md bg-offwhite-muted border border-offwhite-border group-hover:bg-accent/15 group-hover:border-accent/40 flex items-center justify-center text-charcoal group-hover:text-accent transition-colors">
-                        <IconComponent className="w-6 h-6 stroke-[1.5]" />
-                      </div>
-                      <span className="text-[11px] font-mono text-warmgray">
-                        0{index + 1}
-                      </span>
-                    </div>
-
-                    <h3 className="font-display text-lg font-bold text-charcoal mb-2.5 group-hover:text-accent-hover transition-colors">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-sm text-warmgray-dark leading-relaxed mb-6 font-sans">
-                      {service.shortDescription}
-                    </p>
+                <div className="group h-full flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-[#E8DED0] hover:border-[#B89B72]">
+                  {/* Image Container */}
+                  <div className="relative h-56 w-full overflow-hidden bg-[#E8DED0]">
+                    <Image
+                      src={imageSrc}
+                      alt={service.title}
+                      fill
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-115 group-hover:brightness-125"
+                    />
                   </div>
 
-                  <div className="pt-4 border-t border-offwhite-border/60 flex items-center justify-between">
-                    <a
-                      href={waUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-charcoal group-hover:text-accent transition-colors"
-                      aria-label={`Get quote for ${service.title} on WhatsApp`}
-                    >
-                      <MessageCircle className="w-3.5 h-3.5 text-accent" />
-                      <span>Inquire on WhatsApp</span>
-                    </a>
+                  {/* Content Container */}
+                  <div className="p-6 flex flex-col justify-between flex-1">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-xs font-black text-[#B89B72] uppercase tracking-widest">
+                          Service {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <div className="w-1 h-8 bg-gradient-to-b from-[#B89B72] to-[#A8A39B] rounded-full"></div>
+                      </div>
+
+                      <h3 className="font-bold text-xl text-[#242321] mb-3 group-hover:text-[#B89B72] transition-colors duration-300">
+                        {service.title}
+                      </h3>
+
+                      <p className="text-sm text-[#756F67] leading-relaxed mb-5 font-sans">
+                        {service.shortDescription}
+                      </p>
+                    </div>
+
+                    {/* CTA Button */}
+                    <div className="pt-5 border-t border-[#E8DED0]">
+                      <a
+                        href={waUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-bold text-[#B89B72] hover:text-[#A8A39B] group/btn transition-all duration-300 hover:gap-3"
+                        aria-label={`Get quote for ${service.title} on WhatsApp`}
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        <span>Get Quote</span>
+                        <ArrowRight className="w-4 h-4 opacity-0 group-hover/btn:opacity-100 transition-all" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </Reveal>

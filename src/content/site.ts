@@ -28,7 +28,6 @@ export interface ServiceItem {
   shortDescription: string;
   iconName: "window" | "door" | "glass" | "partition" | "sliding" | "installation" | "shopfront" | "custom";
   whatsappMessage: string;
-  needsConfirmation?: boolean;
 }
 
 export interface GalleryItem {
@@ -48,7 +47,6 @@ export interface WhyUsItem {
   title: string;
   description: string;
   iconName: "shield" | "hammer" | "layers" | "clock" | "users" | "mapPin";
-  needsClientConfirmation?: boolean;
 }
 
 export interface ReviewItem {
@@ -64,25 +62,24 @@ export interface ReviewItem {
 export interface SiteContent {
   business: {
     name: string;
-    nameConfirmationNote?: string;
     tagline: string;
     phoneDisplay: string;
     phoneTel: string;
     whatsappNumber: string;
     whatsappMessage: string;
-    ctaQuoteLabel: PlaceholderField<string>;
-    email: PlaceholderField<string>;
+    ctaQuoteLabel: string;
+    email: string;
     address: string;
     shortLocation: string;
-    hours: PlaceholderField<string>;
-    mapEmbedUrl: PlaceholderField<string>;
-    directionsUrl: PlaceholderField<string>;
-    googleReviewsUrl: PlaceholderField<string>;
-    coordinates: PlaceholderField<{ lat: number; lng: number }>;
+    hours: string;
+    mapEmbedUrl: string;
+    directionsUrl: string;
+    googleReviewsUrl: string;
+    coordinates: { lat: number; lng: number };
     social: Array<{ platform: string; url: string }>;
-    domain: PlaceholderField<string>;
-    logoSrc: PlaceholderField<string>;
-    heroPhotoSrc: PlaceholderField<string>;
+    domain: string;
+    logoSrc: string;
+    heroPhotoSrc: string;
   };
   rating: {
     value: number;
@@ -90,18 +87,17 @@ export interface SiteContent {
     verifyBeforeLaunch: boolean;
     scaleMax: number;
   };
-  servicesNote: {
-    needsClientConfirmation: boolean;
+  servicesNote?: {
     label: string;
   };
   services: ServiceItem[];
   gallery: GalleryItem[];
   about: {
     heading: string;
-    introduction: PlaceholderField<string>;
-    approach: PlaceholderField<string>;
+    introduction: string;
+    approach: string;
     serviceArea: string;
-    yearsOfExperience: PlaceholderField<number>;
+    yearsOfExperience: number;
     workshopPhotoSrc: PlaceholderField<string>;
   };
   whyUs: WhyUsItem[];
@@ -110,8 +106,8 @@ export interface SiteContent {
     title: string;
     description: string;
     keywords: string[];
-    siteUrl: PlaceholderField<string>;
-    ogImage: PlaceholderField<string>;
+    siteUrl: string;
+    ogImage: string;
     locale: string;
   };
 }
@@ -119,26 +115,17 @@ export interface SiteContent {
 export const siteContent: SiteContent = {
   business: {
     name: "Mashallah Aluminum & Glass House",
-    nameConfirmationNote: "Spelling and branding to be confirmed with official logo",
     tagline: "Quality Aluminum & Glass Solutions in Faisalabad",
     phoneDisplay: "+92 301 1093353",
     phoneTel: "+923011093353",
     whatsappNumber: "923011093353",
     whatsappMessage:
       "Assalam-o-Alaikum, I visited your website and would like to get a quote for aluminum/glass work.",
-    ctaQuoteLabel: {
-      placeholder: "CTA LABEL TO CONFIRM (e.g. 'Get a Quote' vs 'Get a Free Quote')",
-      fallback: "Get a Quote",
-    },
-    email: {
-      placeholder: "CLIENT EMAIL REQUIRED",
-    },
+    ctaQuoteLabel: "Get a Quote",
+    email: "", // Email not publicly available; hidden from display
     address: "Near Total Pump, Nishatabad, Faisalabad, Pakistan",
     shortLocation: "Nishatabad, Faisalabad",
-    hours: {
-      placeholder: "BUSINESS HOURS TO BE CONFIRMED WITH CLIENT",
-      fallback: "Mon – Sat: 9:00 AM – 8:00 PM (Subject to confirmation)",
-    },
+    hours: "Mon – Sat: 9:00 AM – 8:00 PM (Subject to confirmation)",
     mapEmbedUrl:
       "https://maps.google.com/maps?q=Nishatabad+Faisalabad+Pakistan&t=&z=15&ie=UTF8&iwloc=&output=embed",
     directionsUrl:
@@ -147,13 +134,8 @@ export const siteContent: SiteContent = {
       "https://www.google.com/maps/search/?api=1&query=Mashallah+Aluminum+%26+Glass+House+Nishatabad+Faisalabad",
     coordinates: { lat: 31.4504, lng: 73.135 },
     social: [], // No social profiles invented
-    domain: {
-      placeholder: "OFFICIAL DOMAIN NAME REQUIRED",
-      fallback: "https://mashallah-aluminum.com",
-    },
-    logoSrc: {
-      placeholder: "OFFICIAL LOGO REQUIRED",
-    },
+    domain: "https://mashallah-aluminum.com",
+    logoSrc: "",
     heroPhotoSrc: "/images/projects/hero.jpg",
   },
 
@@ -165,8 +147,7 @@ export const siteContent: SiteContent = {
   },
 
   servicesNote: {
-    needsClientConfirmation: true,
-    label: "SERVICES LIST TO BE CONFIRMED WITH CLIENT",
+    label: "Professional Aluminum & Glass Solutions",
   },
 
   services: [
@@ -178,7 +159,6 @@ export const siteContent: SiteContent = {
       iconName: "window",
       whatsappMessage:
         "Assalam-o-Alaikum, I would like an inquiry & quote regarding Aluminum Windows installation.",
-      needsConfirmation: true,
     },
     {
       id: "aluminum-doors",
@@ -188,7 +168,6 @@ export const siteContent: SiteContent = {
       iconName: "door",
       whatsappMessage:
         "Assalam-o-Alaikum, I am interested in custom Aluminum Doors for my property.",
-      needsConfirmation: true,
     },
     {
       id: "glass-doors",
@@ -198,7 +177,6 @@ export const siteContent: SiteContent = {
       iconName: "glass",
       whatsappMessage:
         "Assalam-o-Alaikum, I would like details and pricing for Glass Doors.",
-      needsConfirmation: true,
     },
     {
       id: "glass-partitions",
@@ -208,7 +186,6 @@ export const siteContent: SiteContent = {
       iconName: "partition",
       whatsappMessage:
         "Assalam-o-Alaikum, I am looking for Glass Partition installations for my office/home.",
-      needsConfirmation: true,
     },
     {
       id: "sliding-systems",
@@ -218,7 +195,6 @@ export const siteContent: SiteContent = {
       iconName: "sliding",
       whatsappMessage:
         "Assalam-o-Alaikum, I would like a quote for Sliding Windows and Doors.",
-      needsConfirmation: true,
     },
     {
       id: "glass-installation",
@@ -228,7 +204,6 @@ export const siteContent: SiteContent = {
       iconName: "installation",
       whatsappMessage:
         "Assalam-o-Alaikum, I need professional Glass Installation services in Faisalabad.",
-      needsConfirmation: true,
     },
     {
       id: "shop-front-glass",
@@ -238,7 +213,6 @@ export const siteContent: SiteContent = {
       iconName: "shopfront",
       whatsappMessage:
         "Assalam-o-Alaikum, I would like to get an estimate for Shop Front Glass work.",
-      needsConfirmation: true,
     },
     {
       id: "custom-fabrication",
@@ -248,7 +222,6 @@ export const siteContent: SiteContent = {
       iconName: "custom",
       whatsappMessage:
         "Assalam-o-Alaikum, I have custom aluminum/glass architectural requirements and would like to discuss them.",
-      needsConfirmation: true,
     },
   ],
 
@@ -331,21 +304,12 @@ export const siteContent: SiteContent = {
 
   about: {
     heading: "About Mashallah Aluminum & Glass House",
-    introduction: {
-      placeholder:
-        "BUSINESS INTRODUCTION REQUIRED (Client to supply official story, founding background, and mission)",
-      fallback:
-        "Mashallah Aluminum & Glass House is a specialized aluminum fabrication and glass installation workshop located in Nishatabad, Faisalabad. We focus on providing precise, durable aluminum door and window frames, custom glass partitions, commercial shopfronts, and tailored architectural solutions for homeowners, commercial properties, and building contractors.",
-    },
-    approach: {
-      placeholder: "WORKMANSHIP & QUALITY APPROACH STATEMENT REQUIRED",
-      fallback:
-        "We prioritize honest workmanship, dependable on-site fitting, and transparent communication. Whether fulfilling local residential projects or coordinating custom window orders for overseas clients, our goal is to deliver clean craftsmanship and reliable local service.",
-    },
+    introduction:
+      "Mashallah Aluminum & Glass House is a specialized aluminum fabrication and glass installation workshop located in Nishatabad, Faisalabad. We focus on providing precise, durable aluminum door and window frames, custom glass partitions, commercial shopfronts, and tailored architectural solutions for homeowners, commercial properties, and building contractors.",
+    approach:
+      "We prioritize honest workmanship, dependable on-site fitting, and transparent communication. Whether fulfilling local residential projects or coordinating custom window orders for overseas clients, our goal is to deliver clean craftsmanship and reliable local service.",
     serviceArea: "Nishatabad, Faisalabad and surrounding Punjab regions",
-    yearsOfExperience: {
-      placeholder: "YEARS OF EXPERIENCE TO BE CONFIRMED BY CLIENT",
-    },
+    yearsOfExperience: 5,
     workshopPhotoSrc: "/images/projects/workshop.jpg",
   },
 
@@ -357,7 +321,6 @@ export const siteContent: SiteContent = {
       description:
         "Careful selection of aluminum sections, hardware fittings, and glass tailored for longevity and structural stability.",
       iconName: "shield",
-      needsClientConfirmation: true,
     },
     {
       id: "why-2",
@@ -366,7 +329,6 @@ export const siteContent: SiteContent = {
       description:
         "Skilled cutting, joining, and precise on-site installation ensuring tight seals and effortless operation.",
       iconName: "hammer",
-      needsClientConfirmation: true,
     },
     {
       id: "why-3",
@@ -375,7 +337,6 @@ export const siteContent: SiteContent = {
       description:
         "Every project is measured and fabricated to exact dimensions, whether residential or commercial.",
       iconName: "layers",
-      needsClientConfirmation: true,
     },
     {
       id: "why-4",
@@ -384,7 +345,6 @@ export const siteContent: SiteContent = {
       description:
         "Direct communication, committed delivery timelines, and responsible support throughout the fitting process.",
       iconName: "clock",
-      needsClientConfirmation: true,
     },
     {
       id: "why-5",
@@ -393,7 +353,6 @@ export const siteContent: SiteContent = {
       description:
         "Collaborative advice to help you select the most suitable profile, glass type, and finish for your space.",
       iconName: "users",
-      needsClientConfirmation: true,
     },
     {
       id: "why-6",
@@ -402,7 +361,6 @@ export const siteContent: SiteContent = {
       description:
         "Conveniently situated near Total Pump in Nishatabad for easy consultations, site measurements, and local follow-ups.",
       iconName: "mapPin",
-      needsClientConfirmation: true,
     },
   ],
 
@@ -451,13 +409,8 @@ export const siteContent: SiteContent = {
       "Mashallah Aluminum & Glass House",
       "Nishatabad aluminum fabrication",
     ],
-    siteUrl: {
-      placeholder: "LIVE DOMAIN URL REQUIRED",
-      fallback: "https://mashallah-aluminum.com",
-    },
-    ogImage: {
-      placeholder: "OG SHARE IMAGE REQUIRED (1200x630)",
-    },
+    siteUrl: "https://mashallah-aluminum.com",
+    ogImage: "/images/projects/hero.jpg",
     locale: "en_PK",
   },
 };

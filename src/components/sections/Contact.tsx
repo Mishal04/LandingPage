@@ -6,14 +6,12 @@ import {
   MessageCircle,
   MapPin,
   Clock,
-  Mail,
   ExternalLink,
   Navigation,
 } from "lucide-react";
-import { siteContent, isPlaceholder, resolveValue } from "@/content/site";
+import { siteContent } from "@/content/site";
 import { telLink, whatsappLink, directionsLink } from "@/lib/contact";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -21,25 +19,23 @@ export function Contact() {
   const { business } = siteContent;
   const [mapLoaded, setMapLoaded] = useState(true);
 
-  const hoursText = resolveValue(
-    business.hours,
-    "Mon – Sat: 9:00 AM – 8:00 PM (Subject to confirmation)"
-  );
+  const hoursText = business.hours;
   const dirUrl = directionsLink();
   const isEmbedAvailable =
-    !isPlaceholder(business.mapEmbedUrl) && business.mapEmbedUrl.length > 0;
+    business.mapEmbedUrl && business.mapEmbedUrl.length > 0;
 
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="py-20 md:py-28 bg-charcoal text-offwhite scroll-mt-16 border-t border-charcoal-border"
+      className="py-20 md:py-28 bg-[#E8DED0] text-[#242321] scroll-mt-16 border-t border-[#D4C4B0]"
+      style={{ paddingBottom: "8rem" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
             id="contact-heading"
-            theme="dark"
+            theme="light"
             tagline="Get In Touch"
             title="Contact & Workshop Location"
             description="Call directly, chat with us on WhatsApp for fast estimates, or visit our Nishatabad workshop."
@@ -87,27 +83,27 @@ export function Contact() {
 
             {/* Business Contact & Location Cards */}
             <Reveal delayMs={200}>
-              <div className="p-6 md:p-8 rounded-xl bg-charcoal-200 border border-charcoal-border space-y-5">
+              <div className="p-6 md:p-8 rounded-xl bg-white border border-[#E8DED0] space-y-5 shadow-lg">
                 <div>
-                  <h3 className="text-xl font-bold font-display text-offwhite mb-1">
+                  <h3 className="text-xl font-bold font-display text-[#242321] mb-1">
                     {business.name}
                   </h3>
-                  <p className="text-xs text-warmgray-light">
+                  <p className="text-xs text-[#756F67]">
                     {business.tagline}
                   </p>
                 </div>
 
-                <div className="space-y-4 pt-2 border-t border-charcoal-border">
+                <div className="space-y-4 pt-2 border-t border-[#E8DED0]">
                   {/* Address */}
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-md bg-charcoal-100 border border-charcoal-border flex items-center justify-center text-accent shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#B89B72]/20 to-[#A8A39B]/20 border border-[#B89B72]/50 flex items-center justify-center text-[#B89B72] shrink-0 mt-0.5">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-xs text-warmgray uppercase tracking-wider block font-mono">
+                      <span className="text-xs text-[#B89B72] uppercase tracking-wider block font-mono">
                         Location
                       </span>
-                      <span className="text-sm text-offwhite font-medium">
+                      <span className="text-sm text-[#242321] font-medium">
                         {business.address}
                       </span>
                     </div>
@@ -115,68 +111,34 @@ export function Contact() {
 
                   {/* Phone */}
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-md bg-charcoal-100 border border-charcoal-border flex items-center justify-center text-accent shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#B89B72]/20 to-[#A8A39B]/20 border border-[#B89B72]/50 flex items-center justify-center text-[#B89B72] shrink-0 mt-0.5">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-xs text-warmgray uppercase tracking-wider block font-mono">
+                      <span className="text-xs text-[#B89B72] uppercase tracking-wider block font-mono">
                         Direct Phone / WhatsApp
                       </span>
                       <a
                         href={telLink()}
-                        className="text-sm text-offwhite hover:text-accent font-semibold transition-colors"
+                        className="text-sm text-[#242321] hover:text-[#B89B72] font-semibold transition-colors"
                       >
                         {business.phoneDisplay}
                       </a>
                     </div>
                   </div>
 
-                  {/* Email */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-md bg-charcoal-100 border border-charcoal-border flex items-center justify-center text-accent shrink-0 mt-0.5">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-xs text-warmgray uppercase tracking-wider block font-mono">
-                        Email
-                      </span>
-                      {isPlaceholder(business.email) ? (
-                        <Placeholder
-                          label={business.email.placeholder}
-                          variant="badge"
-                        />
-                      ) : (
-                        <a
-                          href={`mailto:${business.email}`}
-                          className="text-sm text-offwhite hover:text-accent transition-colors"
-                        >
-                          {business.email}
-                        </a>
-                      )}
-                    </div>
-                  </div>
-
                   {/* Business Hours */}
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-md bg-charcoal-100 border border-charcoal-border flex items-center justify-center text-accent shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#B89B72]/20 to-[#A8A39B]/20 border border-[#B89B72]/50 flex items-center justify-center text-[#B89B72] shrink-0 mt-0.5">
                       <Clock className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-xs text-warmgray uppercase tracking-wider block font-mono">
+                      <span className="text-xs text-[#B89B72] uppercase tracking-wider block font-mono">
                         Business Hours
                       </span>
-                      <span className="text-sm text-offwhite">
+                      <span className="text-sm text-[#242321]">
                         {hoursText}
                       </span>
-                      {isPlaceholder(business.hours) && (
-                        <div className="mt-1">
-                          <Placeholder
-                            label="CONFIRM OPERATING HOURS"
-                            variant="badge"
-                            className="text-[9px] py-0 px-1"
-                          />
-                        </div>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -187,18 +149,18 @@ export function Contact() {
           {/* Right Column: Google Maps Interactive Facade or Embed */}
           <div className="lg:col-span-6 flex flex-col gap-4 order-2">
             <Reveal delayMs={150}>
-              <div className="rounded-xl overflow-hidden border border-charcoal-border bg-charcoal-200 shadow-md">
+              <div className="rounded-xl overflow-hidden border border-[#E8DED0] bg-white shadow-lg">
                 {isEmbedAvailable ? (
-                  <div className="relative aspect-[4/3] w-full bg-charcoal-dark">
+                  <div className="relative aspect-[4/3] w-full bg-[#F5F1EA]">
                     {!mapLoaded && (
                       <button
                         onClick={() => setMapLoaded(true)}
-                        className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-charcoal-200 hover:bg-charcoal-100 text-offwhite transition-colors p-6 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#E8DED0] hover:bg-[#D4C4B0] text-[#242321] transition-colors p-6 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B89B72]"
                         aria-label="Load interactive Google Map"
                       >
-                        <MapPin className="w-8 h-8 text-accent mb-2" />
+                        <MapPin className="w-8 h-8 text-[#B89B72] mb-2" />
                         <span className="font-bold text-sm">Load Google Map</span>
-                        <span className="text-xs text-warmgray-light mt-1">
+                        <span className="text-xs text-[#756F67] mt-1">
                           Click to view interactive map for Nishatabad workshop
                         </span>
                       </button>
@@ -218,21 +180,19 @@ export function Contact() {
                     )}
                   </div>
                 ) : (
-                  <div className="p-4">
-                    <Placeholder
-                      label="EXACT GOOGLE MAPS EMBED REQUIRED"
-                      variant="block"
-                      note="Place client's verified Google Maps embed URL here for an interactive on-page map."
-                      aspectRatio="landscape"
-                      className="min-h-[280px]"
-                    />
+                  <div className="p-4 bg-[#E8DED0] text-center">
+                    <div className="text-[#756F67]">
+                      <MapPin className="w-6 h-6 text-[#B89B72] mx-auto mb-2" />
+                      <p className="font-medium">Location Map</p>
+                      <p className="text-xs text-[#756F67] mt-1">Near Total Pump, Nishatabad, Faisalabad</p>
+                    </div>
                   </div>
                 )}
 
                 {/* Map Footer Strip with Fallback Link */}
-                <div className="p-4 bg-charcoal-100 border-t border-charcoal-border flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 text-xs text-offwhite/80">
-                    <MapPin className="w-4 h-4 text-accent shrink-0" />
+                <div className="p-4 bg-[#E8DED0] border-t border-[#D4C4B0] flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 text-xs text-[#242321]">
+                    <MapPin className="w-4 h-4 text-[#B89B72] shrink-0" />
                     <span>Near Total Pump, Nishatabad</span>
                   </div>
 
@@ -240,7 +200,7 @@ export function Contact() {
                     href={dirUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:text-accent-light transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#B89B72] hover:text-[#A8A39B] transition-colors"
                   >
                     <span>Open in Google Maps</span>
                     <ExternalLink className="w-3.5 h-3.5" />
