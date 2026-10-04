@@ -69,15 +69,15 @@ export function MobileMenu({
       role="dialog"
       aria-modal="true"
       aria-label="Navigation Menu"
-      className="fixed inset-0 z-50 bg-[#242321]/95 backdrop-blur-md flex flex-col justify-between p-6 sm:hidden animate-fade-in text-[#F5F1EA]"
+      className="fixed inset-0 z-50 bg-[#292E25]/95 backdrop-blur-md flex flex-col justify-between p-6 sm:hidden animate-fade-in text-[#F3EFE6]"
     >
       {/* Top Header in Menu */}
-      <div className="flex items-center justify-between border-b border-[#756F67] pb-4">
+      <div className="flex items-center justify-between border-b border-[#766F63] pb-4">
         <div>
-          <span className="font-display font-bold text-lg text-[#F5F1EA] tracking-tight">
+          <span className="font-display font-bold text-lg text-[#F3EFE6] tracking-tight">
             Mashallah Aluminum
           </span>
-          <p className="text-[11px] text-[#A8A39B] tracking-wide uppercase">
+          <p className="text-[11px] text-[#9C9A91] tracking-wide uppercase">
             & Glass House • Faisalabad
           </p>
         </div>
@@ -85,7 +85,7 @@ export function MobileMenu({
           ref={closeButtonRef}
           onClick={onClose}
           aria-label="Close navigation menu"
-          className="p-2.5 rounded-full bg-[#E8DED0] text-[#242321] hover:bg-[#B89B72] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B89B72]"
+          className="p-2.5 rounded-full bg-[#EBE7DE] text-[#292E25] hover:bg-[#A4865A] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A4865A]"
         >
           <X className="w-5 h-5" />
         </button>
@@ -102,8 +102,8 @@ export function MobileMenu({
               onClick={onClose}
               className={`py-3 px-4 rounded-md text-lg font-medium transition-colors ${
                 isActive
-                  ? "bg-[#B89B72]/15 text-[#B89B72] font-semibold"
-                  : "text-[#F5F1EA]/90 hover:bg-[#2a2622] hover:text-[#F5F1EA]"
+                  ? "bg-[#A4865A]/15 text-[#A4865A] font-semibold"
+                  : "text-[#F3EFE6]/90 hover:bg-[#363530] hover:text-[#F3EFE6]"
               }`}
             >
               {link.label}
@@ -113,12 +113,12 @@ export function MobileMenu({
       </nav>
 
       {/* Action Conversion CTAs */}
-      <div className="flex flex-col gap-3 pt-4 border-t border-[#756F67]">
+      <div className="flex flex-col gap-3 pt-4 border-t border-[#766F63]">
         <Button
           href={whatsappLink()}
           variant="primary"
           size="lg"
-          className="w-full bg-[#B89B72] hover:bg-[#A88561] text-white"
+          className="w-full bg-[#A4865A] hover:bg-[#9C8A52] text-white"
           leftIcon={<MessageCircle className="w-5 h-5" />}
         >
           {quoteLabel}
@@ -128,8 +128,8 @@ export function MobileMenu({
           href={telLink()}
           variant="secondary"
           size="md"
-          className="w-full border-[#B89B72] text-[#B89B72]"
-          leftIcon={<Phone className="w-4 h-4 text-[#B89B72]" />}
+          className="w-full border-[#A4865A] text-[#A4865A]"
+          leftIcon={<Phone className="w-4 h-4 text-[#A4865A]" />}
         >
           Call: {siteContent.business.phoneDisplay}
         </Button>

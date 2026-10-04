@@ -25,7 +25,7 @@ export function Services() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="py-20 md:py-28 bg-[#F5F1EA] scroll-mt-16"
+      className="py-20 md:py-28 bg-[#F3EFE6] scroll-mt-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
@@ -45,9 +45,9 @@ export function Services() {
 
             return (
               <Reveal key={service.id} delayMs={index * 60}>
-                <div className="group h-full flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-[#E8DED0] hover:border-[#B89B72]">
+                <div className="group h-full flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-[#EBE7DE] hover:border-[#A4865A]">
                   {/* Image Container */}
-                  <div className="relative h-56 w-full overflow-hidden bg-[#E8DED0]">
+                  <div className="relative h-56 w-full overflow-hidden bg-[#EBE7DE]">
                     <Image
                       src={imageSrc}
                       alt={service.title}
@@ -60,28 +60,28 @@ export function Services() {
                   <div className="p-6 flex flex-col justify-between flex-1">
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <span className="text-xs font-black text-[#B89B72] uppercase tracking-widest">
+                        <span className="text-xs font-black text-[#A4865A] uppercase tracking-widest">
                           Service {String(index + 1).padStart(2, "0")}
                         </span>
-                        <div className="w-1 h-8 bg-gradient-to-b from-[#B89B72] to-[#A8A39B] rounded-full"></div>
+                        <div className="w-1 h-8 bg-gradient-to-b from-[#A4865A] to-[#9C9A91] rounded-full"></div>
                       </div>
 
-                      <h3 className="font-bold text-xl text-[#242321] mb-3 group-hover:text-[#B89B72] transition-colors duration-300">
+                      <h3 className="font-bold text-xl text-[#292E25] mb-3 group-hover:text-[#A4865A] transition-colors duration-300">
                         {service.title}
                       </h3>
 
-                      <p className="text-sm text-[#756F67] leading-relaxed mb-5 font-sans">
+                      <p className="text-sm text-[#766F63] leading-relaxed mb-5 font-sans">
                         {service.shortDescription}
                       </p>
                     </div>
 
                     {/* CTA Button */}
-                    <div className="pt-5 border-t border-[#E8DED0]">
+                    <div className="pt-5 border-t border-[#EBE7DE]">
                       <a
                         href={waUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-bold text-[#B89B72] hover:text-[#A8A39B] group/btn transition-all duration-300 hover:gap-3"
+                        className="inline-flex items-center gap-2 text-sm font-bold text-[#A4865A] hover:text-[#9C9A91] group/btn transition-all duration-300 hover:gap-3"
                         aria-label={`Get quote for ${service.title} on WhatsApp`}
                       >
                         <MessageCircle className="w-4 h-4" />

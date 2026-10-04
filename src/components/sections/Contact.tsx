@@ -28,7 +28,7 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="py-20 md:py-28 bg-[#E8DED0] text-[#242321] scroll-mt-16 border-t border-[#D4C4B0]"
+      className="py-20 md:py-28 bg-[#EBE7DE] text-[#292E25] scroll-mt-16 border-t border-[#DDD8CE]"
       style={{ paddingBottom: "8rem" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,27 +83,27 @@ export function Contact() {
 
             {/* Business Contact & Location Cards */}
             <Reveal delayMs={200}>
-              <div className="p-6 md:p-8 rounded-xl bg-white border border-[#E8DED0] space-y-5 shadow-lg">
+              <div className="p-6 md:p-8 rounded-xl bg-white border border-[#EBE7DE] space-y-5 shadow-lg">
                 <div>
-                  <h3 className="text-xl font-bold font-display text-[#242321] mb-1">
+                  <h3 className="text-xl font-bold font-display text-[#292E25] mb-1">
                     {business.name}
                   </h3>
-                  <p className="text-xs text-[#756F67]">
+                  <p className="text-xs text-[#766F63]">
                     {business.tagline}
                   </p>
                 </div>
 
-                <div className="space-y-4 pt-2 border-t border-[#E8DED0]">
+                <div className="space-y-4 pt-2 border-t border-[#EBE7DE]">
                   {/* Address */}
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#B89B72]/20 to-[#A8A39B]/20 border border-[#B89B72]/50 flex items-center justify-center text-[#B89B72] shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#A4865A]/20 to-[#9C9A91]/20 border border-[#A4865A]/50 flex items-center justify-center text-[#A4865A] shrink-0 mt-0.5">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-xs text-[#B89B72] uppercase tracking-wider block font-mono">
+                      <span className="text-xs text-[#A4865A] uppercase tracking-wider block font-mono">
                         Location
                       </span>
-                      <span className="text-sm text-[#242321] font-medium">
+                      <span className="text-sm text-[#292E25] font-medium">
                         {business.address}
                       </span>
                     </div>
@@ -111,16 +111,16 @@ export function Contact() {
 
                   {/* Phone */}
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#B89B72]/20 to-[#A8A39B]/20 border border-[#B89B72]/50 flex items-center justify-center text-[#B89B72] shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#A4865A]/20 to-[#9C9A91]/20 border border-[#A4865A]/50 flex items-center justify-center text-[#A4865A] shrink-0 mt-0.5">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-xs text-[#B89B72] uppercase tracking-wider block font-mono">
+                      <span className="text-xs text-[#A4865A] uppercase tracking-wider block font-mono">
                         Direct Phone / WhatsApp
                       </span>
                       <a
                         href={telLink()}
-                        className="text-sm text-[#242321] hover:text-[#B89B72] font-semibold transition-colors"
+                        className="text-sm text-[#292E25] hover:text-[#A4865A] font-semibold transition-colors"
                       >
                         {business.phoneDisplay}
                       </a>
@@ -129,14 +129,14 @@ export function Contact() {
 
                   {/* Business Hours */}
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#B89B72]/20 to-[#A8A39B]/20 border border-[#B89B72]/50 flex items-center justify-center text-[#B89B72] shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-md bg-gradient-to-br from-[#A4865A]/20 to-[#9C9A91]/20 border border-[#A4865A]/50 flex items-center justify-center text-[#A4865A] shrink-0 mt-0.5">
                       <Clock className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-xs text-[#B89B72] uppercase tracking-wider block font-mono">
+                      <span className="text-xs text-[#A4865A] uppercase tracking-wider block font-mono">
                         Business Hours
                       </span>
-                      <span className="text-sm text-[#242321]">
+                      <span className="text-sm text-[#292E25]">
                         {hoursText}
                       </span>
                     </div>
@@ -149,18 +149,18 @@ export function Contact() {
           {/* Right Column: Google Maps Interactive Facade or Embed */}
           <div className="lg:col-span-6 flex flex-col gap-4 order-2">
             <Reveal delayMs={150}>
-              <div className="rounded-xl overflow-hidden border border-[#E8DED0] bg-white shadow-lg">
+              <div className="rounded-xl overflow-hidden border border-[#EBE7DE] bg-white shadow-lg">
                 {isEmbedAvailable ? (
-                  <div className="relative aspect-[4/3] w-full bg-[#F5F1EA]">
+                  <div className="relative aspect-[4/3] w-full bg-[#F3EFE6]">
                     {!mapLoaded && (
                       <button
                         onClick={() => setMapLoaded(true)}
-                        className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#E8DED0] hover:bg-[#D4C4B0] text-[#242321] transition-colors p-6 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B89B72]"
+                        className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#EBE7DE] hover:bg-[#DDD8CE] text-[#292E25] transition-colors p-6 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A4865A]"
                         aria-label="Load interactive Google Map"
                       >
-                        <MapPin className="w-8 h-8 text-[#B89B72] mb-2" />
+                        <MapPin className="w-8 h-8 text-[#A4865A] mb-2" />
                         <span className="font-bold text-sm">Load Google Map</span>
-                        <span className="text-xs text-[#756F67] mt-1">
+                        <span className="text-xs text-[#766F63] mt-1">
                           Click to view interactive map for Nishatabad workshop
                         </span>
                       </button>
@@ -180,19 +180,19 @@ export function Contact() {
                     )}
                   </div>
                 ) : (
-                  <div className="p-4 bg-[#E8DED0] text-center">
-                    <div className="text-[#756F67]">
-                      <MapPin className="w-6 h-6 text-[#B89B72] mx-auto mb-2" />
+                  <div className="p-4 bg-[#EBE7DE] text-center">
+                    <div className="text-[#766F63]">
+                      <MapPin className="w-6 h-6 text-[#A4865A] mx-auto mb-2" />
                       <p className="font-medium">Location Map</p>
-                      <p className="text-xs text-[#756F67] mt-1">Near Total Pump, Nishatabad, Faisalabad</p>
+                      <p className="text-xs text-[#766F63] mt-1">Near Total Pump, Nishatabad, Faisalabad</p>
                     </div>
                   </div>
                 )}
 
                 {/* Map Footer Strip with Fallback Link */}
-                <div className="p-4 bg-[#E8DED0] border-t border-[#D4C4B0] flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 text-xs text-[#242321]">
-                    <MapPin className="w-4 h-4 text-[#B89B72] shrink-0" />
+                <div className="p-4 bg-[#EBE7DE] border-t border-[#DDD8CE] flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 text-xs text-[#292E25]">
+                    <MapPin className="w-4 h-4 text-[#A4865A] shrink-0" />
                     <span>Near Total Pump, Nishatabad</span>
                   </div>
 
@@ -200,7 +200,7 @@ export function Contact() {
                     href={dirUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#B89B72] hover:text-[#A8A39B] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A4865A] hover:text-[#9C9A91] transition-colors"
                   >
                     <span>Open in Google Maps</span>
                     <ExternalLink className="w-3.5 h-3.5" />

@@ -64,7 +64,7 @@ export function About() {
                   {introText}
                 </p>
 
-                <p className="text-[#756F67]">
+                <p className="text-[#242321] font-medium">
                   {approachText}
                 </p>
               </div>

@@ -29,7 +29,7 @@ export function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="py-20 md:py-28 bg-white text-[#242321] scroll-mt-16"
+      className="py-20 md:py-28 bg-white text-[#292E25] scroll-mt-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
@@ -54,10 +54,10 @@ export function Projects() {
                     setSelectedCategory(cat);
                     setVisibleCount(6);
                   }}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B89B72] ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A4865A] ${
                     selectedCategory === cat
-                      ? "bg-[#B89B72] text-white shadow-lg shadow-[#B89B72]/50"
-                      : "bg-[#E8DED0] text-[#242321] hover:bg-[#D4C4B0] hover:text-[#B89B72] border border-[#D4C4B0]"
+                      ? "bg-[#A4865A] text-white shadow-lg shadow-[#A4865A]/50"
+                      : "bg-[#EBE7DE] text-[#292E25] hover:bg-[#DDD8CE] hover:text-[#A4865A] border border-[#DDD8CE]"
                   }`}
                 >
                   {cat}
@@ -90,9 +90,9 @@ export function Projects() {
                   role="button"
                   tabIndex={0}
                   aria-label={`View enlarged photo for ${item.title}`}
-                  className="group relative flex flex-col h-full rounded-xl overflow-hidden bg-white border border-[#E8DED0] hover:border-[#B89B72] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#B89B72]/20 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B89B72]"
+                  className="group relative flex flex-col h-full rounded-xl overflow-hidden bg-white border border-[#EBE7DE] hover:border-[#A4865A] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#A4865A]/20 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A4865A]"
                 >
-                  <div className="relative overflow-hidden w-full aspect-[4/3] bg-[#F5F1EA]">
+                  <div className="relative overflow-hidden w-full aspect-[4/3] bg-[#F3EFE6]">
                     <ImageOrPlaceholder
                       src={item.imageSrc}
                       alt={item.alt}
@@ -103,24 +103,24 @@ export function Projects() {
                     />
 
                     {/* Hover Overlay with Zoom Icon */}
-                    <div className="absolute inset-0 bg-[#242321]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="p-3 rounded-full bg-[#B89B72] text-white shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="absolute inset-0 bg-[#292E25]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="p-3 rounded-full bg-[#A4865A] text-white shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         <ZoomIn className="w-5 h-5" />
                       </div>
                     </div>
                   </div>
 
                   {/* Caption Strip */}
-                  <div className="flex-grow p-4 bg-gradient-to-r from-[#E8DED0] to-[#D4C4B0] border-t border-[#C4B4A0] flex items-center justify-between gap-3">
+                  <div className="flex-grow p-4 bg-gradient-to-r from-[#EBE7DE] to-[#DDD8CE] border-t border-[#D0CAC0] flex items-center justify-between gap-3">
                     <div>
-                      <span className="text-[10px] font-mono uppercase text-[#B89B72] tracking-wider font-semibold">
+                      <span className="text-[10px] font-mono uppercase text-[#A4865A] tracking-wider font-semibold">
                         {item.category}
                       </span>
-                      <h3 className="text-sm font-bold text-[#242321] mt-0.5 group-hover:text-[#B89B72] transition-colors">
+                      <h3 className="text-sm font-bold text-[#292E25] mt-0.5 group-hover:text-[#A4865A] transition-colors">
                         {item.title}
                       </h3>
                     </div>
-                    <span className="text-xs font-mono text-[#756F67] group-hover:text-[#B89B72] transition-colors">
+                    <span className="text-xs font-mono text-[#766F63] group-hover:text-[#A4865A] transition-colors">
                       View →
                     </span>
                   </div>
@@ -137,7 +137,7 @@ export function Projects() {
               variant="primary"
               size="md"
               onClick={() => setVisibleCount((prev) => prev + 6)}
-              className="bg-[#B89B72] hover:bg-[#A88561] text-white"
+              className="bg-[#A4865A] hover:bg-[#9C8A52] text-white"
             >
               Show More Projects ({filteredItems.length - visibleCount} remaining)
             </Button>

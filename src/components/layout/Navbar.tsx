@@ -56,24 +56,24 @@ export function Navbar() {
         className={cn(
           "sticky top-0 z-40 w-full transition-all duration-300",
           isScrolled
-            ? "bg-gradient-to-r from-[#242321]/95 to-[#2a2622]/95 backdrop-blur-md shadow-lg py-2.5 border-b border-[#756F67]"
-            : "bg-gradient-to-r from-[#242321] to-[#2a2622] py-4 border-b border-[#756F67]/50"
+            ? "bg-gradient-to-r from-[#292E25]/95 to-[#363530]/95 backdrop-blur-md shadow-lg py-2.5 border-b border-[#766F63]"
+            : "bg-gradient-to-r from-[#292E25] to-[#363530] py-4 border-b border-[#766F63]/50"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Wordmark / Logo */}
           <Link
             href="#home"
-            className="group flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B89B72] rounded-sm"
+            className="group flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A4865A] rounded-sm"
           >
             <div className="flex items-center gap-1.5">
-              <span className="font-display font-black text-base md:text-lg tracking-tight text-[#F5F1EA] group-hover:text-[#B89B72] transition-colors">
+              <span className="font-display font-black text-base md:text-lg tracking-tight text-[#F3EFE6] group-hover:text-[#A4865A] transition-colors">
                 MASHALLAH
               </span>
-              <span className="font-display font-black text-base md:text-lg tracking-tight text-[#F5F1EA] group-hover:text-[#B89B72] transition-colors">
+              <span className="font-display font-black text-base md:text-lg tracking-tight text-[#F3EFE6] group-hover:text-[#A4865A] transition-colors">
                 ALUMINUM
               </span>
-              <span className="font-display font-black text-base md:text-lg tracking-tight text-[#F5F1EA] group-hover:text-[#B89B72] transition-colors">
+              <span className="font-display font-black text-base md:text-lg tracking-tight text-[#F3EFE6] group-hover:text-[#A4865A] transition-colors">
                 & GLASS HOUSE
               </span>
             </div>
@@ -93,13 +93,13 @@ export function Navbar() {
                   className={cn(
                     "px-3.5 py-2 text-xs lg:text-sm font-medium rounded-md transition-colors relative",
                     isActive
-                      ? "text-[#B89B72] font-semibold"
-                      : "text-[#F5F1EA]/70 hover:text-[#F5F1EA] hover:bg-[#2a2622]/50"
+                      ? "text-[#A4865A] font-semibold"
+                      : "text-[#F3EFE6]/70 hover:text-[#F3EFE6] hover:bg-[#363530]/50"
                   )}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-[#B89B72] rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-[#A4865A] rounded-full animate-fade-in" />
                   )}
                 </Link>
               );
@@ -112,7 +112,7 @@ export function Navbar() {
               href={whatsappLink()}
               variant="primary"
               size="sm"
-              className="hidden sm:inline-flex bg-[#B89B72] hover:bg-[#A88561] text-white"
+              className="hidden sm:inline-flex bg-[#A4865A] hover:bg-[#9C8A52] text-white"
               leftIcon={<MessageCircle className="w-4 h-4" />}
             >
               {quoteLabel}
@@ -124,7 +124,7 @@ export function Navbar() {
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu-drawer"
               aria-label="Open main menu"
-              className="md:hidden p-2 rounded-md bg-[#2a2622] text-[#F5F1EA] hover:bg-[#342f2a] hover:text-[#B89B72] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B89B72]"
+              className="md:hidden p-2 rounded-md bg-[#363530] text-[#F3EFE6] hover:bg-[#3E3A33] hover:text-[#A4865A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A4865A]"
             >
               <Menu className="w-6 h-6" />
             </button>
