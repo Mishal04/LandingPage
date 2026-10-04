@@ -14,7 +14,7 @@ export function About() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="py-20 md:py-28 bg-[#F5F1EA] text-[#242321] scroll-mt-16"
+      className="py-20 md:py-28 bg-[#BCB9B0] text-[#242321] scroll-mt-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
